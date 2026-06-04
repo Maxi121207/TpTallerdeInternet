@@ -14,7 +14,7 @@
         Volver al inicio
     </a>
 
-    <button>
+    <button id="btnCerrarSesion">
         Cerrar sesión
     </button>
 
@@ -22,7 +22,7 @@
 
     <h2>Agregar noticia</h2>
 
-    <form>
+    <form id="formNoticia">
 
         <label>
             Título
@@ -31,6 +31,7 @@
         <input
             type="text"
             required
+            id="titulo"
         >
 
         <br><br>
@@ -38,7 +39,7 @@
         <label>
             Descripción
         </label>
-        <input type="text">
+        <input type="text" id="descripcion">
         <br><br/>
 
         <label>
@@ -48,46 +49,23 @@
         <input
             type="url"
             required
+            id="imagen"
         >
 
         <br><br>
 
-        <button>
+        <button type="submit" id="btnGuardarNoticia">
             Guardar noticia
         </button>
-
+    
     </form>
-
+    
     <hr>
 
     <h2>Noticias cargadas</h2>
+    <div id="listaNoticias"></div>
 
-    <article>
-
-        <h3>Título noticia</h3>
-
-        <p>
-            Descripción de la noticia
-        </p>
-
-        <img
-            src=""
-            alt="Imagen noticia"
-            width="200"
-        >
-
-        <br><br>
-
-        <button>
-            Editar
-        </button>
-
-        <button>
-            Eliminar
-        </button>
-
-    </article>
-
+    <script src="js/main.js"></script>
 </body>
 
 </html>
