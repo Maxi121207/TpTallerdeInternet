@@ -1,6 +1,23 @@
 body {
-    background-color: blueviolet;
+  background-color: #0D1117;
+  color: #C9D1D9;
+  font-family: 'Courier New', monospace;
+}
+section {
+  min-height: 150px;
+  border-bottom: 1px solid #30363D;
+}
+.tool-list li {
+  color: #AFF5B4;
+  min-height: 25px;
+}
+footer {
+  display: none;
+}
+h2 {
 
+}
 
+article {
 
 }
