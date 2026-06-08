@@ -1,5 +1,9 @@
 let botonOscuro = document.getElementById("bot-oscuro");
-
+// Cargar tema guardado
+if (localStorage.getItem("modo") === "oscuro") {
+  document.body.classList.add("dark-mode");
+  botonOscuro.textContent = "☀️";
+}
 if (botonOscuro) {
   botonOscuro.addEventListener("click", (e) => {
     // Alterna la clase en el body
@@ -7,9 +11,11 @@ if (botonOscuro) {
 
     // Verifica si el modo oscuro está activo para cambiar el texto
     if (document.body.classList.contains("dark-mode")) {
-      botonOscuro.textContent = "Presione para cambiar al color estandar";
+      botonOscuro.textContent = "☀️";
+      localStorage.setItem("modo", "oscuro");
     } else {
-      botonOscuro.textContent = "Presione para poner el Modo Oscuro";
+      botonOscuro.textContent = "🌙";
+      localStorage.setItem("modo", "claro");
     }
   });
 }
