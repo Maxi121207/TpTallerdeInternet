@@ -3,8 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Demo Login - API DummyJSON</title>
+  <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
+  
+  <button type="button" id="bot-oscuro">🌚</button>
+  
   <!-- Formulario de login -->
   <div id="zonaLogin">
     <h2>Iniciar sesión</h2>
@@ -14,7 +18,13 @@
     <br>
 
     <label>Contraseña:</label>
-    <input type="password" id="password" placeholder="ingrese su Contraseña">
+
+  <div class="password-container">
+  <input type="password" id="password" placeholder="ingrese su Contraseña">
+  <button type="button" id="togglePassword">👁️</button>
+  </div>
+
+    <br>
     <br>
 
     <button id="btnLogin">Ingresar</button>
@@ -33,6 +43,6 @@
   </div>
 
   
-  <script src="js/main.js"></script>
+  <script src="JS/main.js"></script>
 </body>
 </html>

@@ -19,6 +19,21 @@ const btnSalir = document.getElementById("btnSalir");
 const inputUsuario = document.getElementById("usuario");
 const inputPassword = document.getElementById("password");
 const mensaje = document.getElementById("mensaje");
+const togglePassword = document.getElementById("togglePassword");
+
+if (togglePassword && inputPassword) {
+  togglePassword.addEventListener("click", function () {
+
+    if (inputPassword.type === "password") {
+      inputPassword.type = "text";
+      togglePassword.textContent = "🙈";
+    } else {
+      inputPassword.type = "password";
+      togglePassword.textContent = "👁️";
+    }
+
+  });
+}
 
 const zonaLogin = document.getElementById("zonaLogin");
 const zonaBienvenida = document.getElementById("zonaBienvenida");
@@ -162,8 +177,12 @@ if (btnLoguearse) {
   });
 }
 const cotizacionActual = document.getElementById("cotizacion-actual");
+const cotizacionActual1 = document.getElementById("cotizacion-actual1");
 
-function obtenerUltimaCotizacion() {
+obtenerCompraCotizacion();
+obtenerVentaCotizacion();
+
+function obtenerCompraCotizacion() {
     fetch("https://api.bluelytics.com.ar/v2/latest")
         .then(respuesta => respuesta.json())
         .then(datos => {
@@ -176,7 +195,20 @@ function obtenerUltimaCotizacion() {
         });
 }
 
-obtenerUltimaCotizacion();
+function obtenerVentaCotizacion() {
+    fetch("https://api.bluelytics.com.ar/v2/latest")
+        .then(respuesta => respuesta.json())
+        .then(datos => {
+            cotizacionActual1.textContent =
+                `El valor de venta del dólar blue hoy es de $${datos.blue.value_sell}`;
+        })
+        .catch(() => {
+            cotizacionActual1.textContent =
+                "No se pudo obtener la cotización.";
+        });
+}
+
+obtenerVentaCotizacion();
 // FORMULARIO DEL ADMIN
 
 function editarNoticia(index) {
