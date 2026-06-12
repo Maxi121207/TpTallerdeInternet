@@ -81,10 +81,10 @@ article {
 article h2 {
   color: #2c3e50;
   margin-bottom: 10px;
-  height: 80px;         
+  height: 140px;         
   overflow: hidden;     
   display: -webkit-box;
-  -webkit-line-clamp: 3; 
+  -webkit-line-clamp: 5; 
   -webkit-box-orient: vertical;
 }
 
