@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Demo Login - API DummyJSON</title>
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+  <button type="button" id="bot-oscuro">🌚</button>
+  
+  <!-- Formulario de login -->
+  <div id="zonaLogin">
+    <h2>Iniciar sesión</h2>
+
+    <label>Usuario:</label>
+    <input type="text" id="usuario" placeholder="ingrese su usuario">
+    <br>
+
+    <label>Contraseña:</label>
+
+  <div class="password-container">
+  <input type="password" id="password" placeholder="ingrese su Contraseña">
+  <button type="button" id="togglePassword">👁️</button>
+  </div>
+
+    <br>
+    <br>
+
+    <button id="btnLogin">Ingresar</button>
+
+    <p id="mensaje"></p>
+    
+  </div>
+
+  <!-- Zona que se ve después de loguearse -->
+  <div id="zonaBienvenida" hidden>
+    <h2>¡Bienvenido/a!</h2>
+    
+    <p><b>Nombre:</b> <span id="nombre"></span></p>
+    <p><b>Email:</b> <span id="email"></span></p>
+    <button id="btnSalir">Cerrar sesión</button>
+    <button id="btnIrAdmin">Panel Admin</button>
+  </div>
+
+  
+  <script src="JS/main.js"></script>
+</body>
+</html>
