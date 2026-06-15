@@ -296,12 +296,6 @@ body.dark-mode #cotizacion-actual1 {
   height: 42px;
 }
 
-/* LOGIN MODERNO */
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 #zonaLogin,
 #zonaBienvenida {
   max-width: 400px;
