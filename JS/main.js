@@ -216,7 +216,7 @@ function obtenerBTCcotización(){
   fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd")
     .then(respuesta => respuesta.json())
     .then(datos=> {
-      cotizacionactualBTC.textContent=`El valor actual del bitcoin es de USD$${datos.bitcoin.usd}`
+      cotizacionactualBTC.textContent=`El valor actual del bitcoin es de USD$ ${datos.bitcoin.usd}`
     })
 }
 

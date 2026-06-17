@@ -257,6 +257,19 @@ article:hover {
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
+#cotizacion-actualBTC{
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  min-width: 280px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #27ae60;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+#cotizacion-actualBTC,
 #cotizacion-actual:hover,
 #cotizacion-actual1:hover {
   transform: translateY(-5px);
