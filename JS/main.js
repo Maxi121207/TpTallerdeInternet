@@ -182,10 +182,10 @@ if (btnLoguearse) {
 }
 const cotizacionActual = document.getElementById("cotizacion-actual");
 const cotizacionActual1 = document.getElementById("cotizacion-actual1");
-
+const cotizacionactualBTC = document.getElementById("cotizacion-actualBTC")
 obtenerCompraCotizacion();
 obtenerVentaCotizacion();
-
+obtenerBTCcotización ();
 function obtenerCompraCotizacion() {
     fetch("https://api.bluelytics.com.ar/v2/latest")
         .then(respuesta => respuesta.json())
@@ -211,6 +211,15 @@ function obtenerVentaCotizacion() {
                 "No se pudo obtener la cotización.";
         });
 }
+
+function obtenerBTCcotización(){
+  fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd")
+    .then(respuesta => respuesta.json())
+    .then(datos=> {
+      cotizacionactualBTC.textContent=`El valor actual del bitcoin es de USD$${datos.bitcoin.usd}`
+    })
+}
+
 
 obtenerVentaCotizacion();
 // FORMULARIO DEL ADMIN
