@@ -265,22 +265,50 @@ article:hover {
   text-align: center;
   font-size: 1.1rem;
   font-weight: bold;
-  color: #27ae60;
+  color: rgb(174, 160, 39);
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-#cotizacion-actualBTC,
 #cotizacion-actual:hover,
 #cotizacion-actual1:hover {
   transform: translateY(-5px);
   transition: 0.3s;
 }
 
+
 body.dark-mode #cotizacion-actual,
 body.dark-mode #cotizacion-actual1 {
   background-color: #2a2a2a;
   color: #4cd964;
 }
+
+#cotizacion-actualBTC,
+#cotizacion-actualPEPE {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  min-width: 280px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: rgb(174, 160, 39);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: 0.3s;
+}
+
+#cotizacion-actualBTC:hover,
+#cotizacion-actualPEPE:hover {
+  transform: translateY(-5px);
+}
+#cotizacion-actualPEPE{background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  min-width: 280px;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #27ae60;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);}
 
 .password-container {
   display: flex;
