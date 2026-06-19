@@ -47,7 +47,7 @@ const email = document.getElementById("email");
 const foto = document.getElementById("foto");
 
 // Cuando arranca la página, ¿hay un token guardado?
-const tokenGuardado = localStorage.getItem("token");
+const tokenGuardado = sessionStorage.getItem("token");
 
 if (tokenGuardado) {
   obtenerDatosDelUsuario(tokenGuardado);
@@ -85,7 +85,7 @@ if (btnLogin) {
 
         console.log("Respuesta del login:", data);
 
-        localStorage.setItem("token", data.accessToken);
+        sessionStorage.setItem("token", data.accessToken);
 
         window.location.href = "admin.html";
       })
@@ -126,7 +126,7 @@ function obtenerDatosDelUsuario(token) {
 
     .catch(function (error) {
       console.log("Error:", error.message);
-      localStorage.removeItem("token");
+      sessionStorage.removeItem("token");
     });
 }
 
@@ -155,7 +155,7 @@ if (btnSalir) {
 
   btnSalir.addEventListener("click", function () {
 
-    localStorage.removeItem("token");
+    sessionStorage.removeItem("token");
 
     if (zonaLogin) {
       zonaLogin.hidden = false;
@@ -214,27 +214,27 @@ function obtenerVentaCotizacion() {
         });
 }
 
-function obtenerBTCcotización(){
-  fetch("https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd")
+function obtenerBTCcotización() {
+  fetch("https://api.coinpaprika.com/v1/tickers/btc-bitcoin")
     .then(respuesta => respuesta.json())
-    .then(datos=> {
-      cotizacionactualBTC.textContent=`El valor actual del bitcoin es de USD$ ${datos.bitcoin.usd}`
-    })
-     .catch(() => {
-            cotizacionactualBTC.textContent =
-                "No se pudo obtener la cotización.";
-        });
-} 
-function obtenerPepecoin() {
-  fetch("https://api.coingecko.com/api/v3/simple/price?ids=pepe&vs_currencies=usd")
-    .then(res => res.json())
     .then(datos => {
-      cotizacionactualPEPE.textContent =
-        `El valor actual de PEPE es de USD$ ${datos.pepe.usd}`;
+      const precio = datos.quotes.USD.price.toLocaleString("es-AR");
+      cotizacionactualBTC.textContent = `El valor actual del Bitcoin es de USD$ ${precio}`;
     })
     .catch(() => {
-      cotizacionactualPEPE.textContent =
-        "No se pudo obtener la cotización.";
+      cotizacionactualBTC.textContent = "No se pudo obtener la cotización.";
+    });
+}
+
+function obtenerPepecoin() {
+  fetch("https://api.coinpaprika.com/v1/tickers/pepe-pepe")
+    .then(respuesta => respuesta.json())
+    .then(datos => {
+      const precio = datos.quotes.USD.price;
+      cotizacionactualPEPE.textContent = `El valor actual de PEPE es de USD$ ${precio}`;
+    })
+    .catch(() => {
+      cotizacionactualPEPE.textContent = "No se pudo obtener la cotización.";
     });
 }
 obtenerPepecoin();
@@ -370,7 +370,7 @@ const btnCerrarSesion = document.getElementById("btnCerrarSesion");
 
 if (btnCerrarSesion) {
     btnCerrarSesion.addEventListener("click", function() {
-        localStorage.removeItem("token");
+        sessionStorage.removeItem("token");
         window.location.href = "index.html";
     });
 }
@@ -384,7 +384,7 @@ if (linkAdmin) {
 
     e.preventDefault();
 
-    const token = localStorage.getItem("token");
+    const token = sessionStorage.getItem("token");
 
     if (token) {
       window.location.href = "admin.html";
@@ -404,29 +404,3 @@ if (btnIrAdmin) {
 }
 
 
-const btn = document.getElementById("btnPrecargadas");
-
-if (btn) {
-
-  if (localStorage.getItem("precargadas")) {
-    btn.style.display = "none";
-  }
-
-  btn.addEventListener("click", () => {
-
-    if (!localStorage.getItem("precargadas")) {
-
-      noticias.push(...noticiasPrecargadas);
-
-      localStorage.setItem("noticias", JSON.stringify(noticias));
-
-      localStorage.setItem("precargadas", "true");
-
-      btn.style.display = "none";
-
-      location.reload();
-    }
-
-  });
-
-}
