@@ -176,8 +176,18 @@ if (btnSalir) {
 const btnLoguearse = document.getElementById("btnLoguearse");
 
 if (btnLoguearse) {
-  btnLoguearse.addEventListener("click", function () {
-    window.location.href ="login.html";
+
+  // Actualiza texto según si hay token o no
+  function actualizarBotonLoguearse() {
+    const token = sessionStorage.getItem("token");
+    btnLoguearse.textContent = token ? "Ir al panel" : "Iniciar sesión";
+  }
+
+  actualizarBotonLoguearse();
+
+  btnLoguearse.addEventListener("click", function() {
+    const token = sessionStorage.getItem("token");
+    window.location.href = token ? "admin.html" : "login.html";
   });
 }
 const cotizacionActual = document.getElementById("cotizacion-actual");
@@ -403,4 +413,37 @@ if (btnIrAdmin) {
   });
 }
 
+function actualizarLinkAdmin() {
+  const linkAdmin = document.getElementById("linkAdmin");
+  if (!linkAdmin) return;
 
+  const token = sessionStorage.getItem("token");
+
+  if (token) {
+    linkAdmin.textContent = "Ir al panel de administrador";
+  } else {
+    linkAdmin.textContent = "Iniciar sesión";
+  }
+}
+
+actualizarLinkAdmin();
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Coordenadas de Rosario, Santa Fe
+  const lat = -32.9468;
+  const lon = -60.6393;
+
+  fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m`)
+    .then(response => {
+      console.log(response.status);
+      return response.json();
+    })
+    .then(data => {
+      const temp = data.current.temperature_2m;
+      
+      const viento = data.current.wind_speed_10m;
+
+      document.getElementById("clima").textContent = `En la ciudad de Rosario hay una temperatura de ${temp}°C y un viento de ${viento} km/h`;
+    })
+    .catch(error => console.error(error));
+});

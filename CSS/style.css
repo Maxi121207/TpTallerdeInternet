@@ -649,3 +649,18 @@ body.dark-mode h2 {
     height: auto;
   }
 }
+
+#Clima {
+  width: 100%;
+  height: 150px;
+  background-color: rgb(4, 4, 156);
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+}
+
+#Clima {
+  color: gold;
+  font-size: 30px;
+  font-family:"Inter", sans-serif;
+}
