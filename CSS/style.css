@@ -1,4 +1,11 @@
 * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+* {
   font-family: 'Nunito Sans', sans-serif;
 }
 body {
@@ -653,14 +660,16 @@ body.dark-mode h2 {
 #Clima {
   width: 100%;
   height: 150px;
-  background-color: rgb(4, 4, 156);
+  background-color:#87CEEB;
   display: flex;
   justify-content: center; 
   align-items: center;     
+  border-radius: 10px;
 }
 
 #Clima {
-  color: gold;
+  color: rgb(31, 30, 26);
   font-size: 30px;
-  font-family:"Inter", sans-serif;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
 }

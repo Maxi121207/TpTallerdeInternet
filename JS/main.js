@@ -445,5 +445,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
       document.getElementById("clima").textContent = `En la ciudad de Rosario hay una temperatura de ${temp}°C y un viento de ${viento} km/h`;
     })
-    .catch(error => console.error(error));
+    .catch(error => console.log("No se pudo obtener los valoreas"));
 });
