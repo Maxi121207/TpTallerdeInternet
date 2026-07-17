@@ -79,8 +79,8 @@ emilyspass
 
 ## Repositorio
 
-Repositorio GitHub: https://github.com/Lucas2877/TpTallerdeInternet
+Repositorio GitHub: https://github.com/Maxi121207/TpTallerdeInternet
 
 ## Sitio Publicado
 
-GitHub Pages: https://lucas2877.github.io/TpTallerdeInternet/
+GitHub Pages: https://maxi121207.github.io/TpTallerdeInternet/
